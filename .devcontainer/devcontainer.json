@@ -1,0 +1,23 @@
+{
+    "name": "GNOME Desktop - 720x1612",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {}
+    },
+    
+    "forwardPorts": [3389, 3390],
+    "portsAttributes": {
+        "3389": {
+            "label": "RDP Primary",
+            "onAutoForward": "notify"
+        },
+        "3390": {
+            "label": "RDP Backup", 
+            "onAutoForward": "notify"
+        }
+    },
+    
+    "postCreateCommand": "bash .devcontainer/setup-gnome.sh",
+    "postStartCommand": "sudo /etc/init.d/xrdp restart"
+}
